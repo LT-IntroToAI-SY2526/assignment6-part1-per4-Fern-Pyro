@@ -22,8 +22,11 @@ def load_and_explore_data(filename):
         filename: name of the CSV file to load
     
     Returns:
-        pandas DataFrame containing the data
+        pandas DataFrame containing the data 
     """
+    #DataFrame is a two-dimensional data structure
+    # the two-dimensional array holds information like a data table w/ rows and columns
+
     # Load the data
     data = pd.read_csv(filename)
     
