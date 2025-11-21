@@ -25,16 +25,26 @@ def load_and_explore_data(filename):
     Returns:
         pandas DataFrame containing the data
     """
-    # TODO: Load the CSV file using pandas
+    # DataFrame is a two-dimensional data structure
+    # the two-dimensional array holds information like a data table w/ rows and columns
+
+    # Load the data
+    data = pd.read_csv(filename)
     
-    # TODO: Print the first 5 rows
+    # Print the first 5 rows:
+    print("\nStudent Scores Data")
+    print(f"\nFirst 5 rows:")
+    print(data.head())
+
+    # Print the shape of the dataset (number of rows and columns):
+    print(f"\nDataset Shape: {data.shape[0]} rows, {data.shape[1]} columns") #DataFram.shape returns a tuple representation of two-dimensional array
     
-    # TODO: Print the shape of the dataset (number of rows and columns)
-    
-    # TODO: Print basic statistics (mean, min, max, etc.)
-    
-    # TODO: Return the dataframe
-    pass
+    # Print basic statistics (mean, min, max, etc.)
+    print(f"\nBasic Statistics:")
+    print(data.describe())
+
+    # Return the dataframe
+    return data
 
 
 def create_scatter_plot(data):
@@ -45,6 +55,9 @@ def create_scatter_plot(data):
         data: pandas DataFrame with Hours and Scores columns
     """
     # TODO: Create a figure with size (10, 6)
+    plt.figure(figsize=(10, 6))
+    plt.scatter(data['Hours'], data['Scores'], color = 'purple', alpha = 0.6)
+    plt.xlabel('Hours Studied ()')
     
     # TODO: Create a scatter plot with Hours on x-axis and Scores on y-axis
     #       Use color='purple' and alpha=0.6
@@ -194,7 +207,7 @@ if __name__ == "__main__":
     print("=" * 70)
     
     # Step 1: Load and explore the data
-    # TODO: Call load_and_explore_data() with 'student_scores.csv'
+    data = load_and_explore_data('student_scores.csv')
     
     # Step 2: Visualize the relationship
     # TODO: Call create_scatter_plot() with the data
