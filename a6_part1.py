@@ -132,7 +132,12 @@ def train_model(X_train, y_train):
 
     model.fit(X_train, y_train)
     
-    print()
+    print(f"\nModel Training Complete")
+    print(f"Slope (coefficient): {model.coef_[0]: .2f}")
+    print(f"Intercept: {model.intercept_: .2f}")
+    print(f"\nEquation: Scores = {model.coef[0]: .2f} x Hours + {model.intercept_:.2f} ")
+
+    return model
 
     # TODO: Create a LinearRegression model
     
