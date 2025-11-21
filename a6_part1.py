@@ -163,6 +163,8 @@ def evaluate_model(model, X_test, y_test):
     print(f"R² Score: {r2: .4f}")
     print(f" → Interpretation: The model explains {r2*100:.2f}% of the variance in scores")
     
+
+    #Print all three metrics with clear labels
     print(f"\nMean Squared Error: {mse: .2f}%")
     print(f"Root Mean Squared Error: {rmse: .2f}%")
     print(f"  → Interpretation: On average, predictions are off by {rmse:.2f}%")
@@ -176,9 +178,6 @@ def evaluate_model(model, X_test, y_test):
     
     # TODO: Calculate Root Mean Squared Error (square root of MSE)
     
-    # TODO: Print all three metrics with clear labels
-    
-    # TODO: Return the predictions
 
 
 def visualize_results(X_train, y_train, X_test, y_test, predictions, model):
@@ -193,27 +192,28 @@ def visualize_results(X_train, y_train, X_test, y_test, predictions, model):
         predictions: model predictions on test set
         model: trained model (to plot line of best fit)
     """
-    # TODO: Create a figure with size (12, 6)
+    plt.figure(figsize=(12,6)) #Create a figure with size (12, 6)
     
+    plt.scatter(X_train, y_train, color = 'blue', aplha= 0.5, label = 'Training Data')
     # TODO: Plot training data as blue scatter points with label 'Training Data'
-    
+    plt.scatter(X_test, y_test, color = 'green', alpha= 0.7, label = 'Testing Data')
     # TODO: Plot test data (actual) as green scatter points with label 'Test Data (Actual)'
-    
+    plt.scatter(X_test, predictions, s= 100, color = 'red', marker = 'x', alpha= 0.7, label = 'Perdictions')
     # TODO: Plot predictions as red X markers with label 'Predictions'
     
+    X_range = np.linspace(X_train.min(), X_train.max(), 100).reshape(-1,1)
+    y_range = model.perdict(X_range)
+    plt.plot(X_range, y_range, color = 'black', linewidth=2, label='Line of Best Fit')
     # TODO: Create and plot the line of best fit
     #       Hint: Create a range of X values, predict Y values, then plot as a black line
-    
-    # TODO: Add x-axis label, y-axis label, and title
-    
-    # TODO: Add legend
-    
-    # TODO: Add grid with alpha=0.3
-    
-    # TODO: Save the figure as 'predictions_plot.png' with dpi=300
-    
-    # TODO: Show the plot
-    pass
+
+    plt.xlabel('Hours Studied (h)', fontdict= 12)
+    plt.ylabel('Test Scores (%)', fontdict= 12)
+    plt.title('Student Test Scores vs Hours')
+    plt.legend()
+    plt.grid(True, aplha=0.3)
+    plt.savefig('test_scores_predictions_plot.png', dpi=300)
+    plt.show()
 
 
 def make_prediction(model, hours):
