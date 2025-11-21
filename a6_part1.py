@@ -57,8 +57,13 @@ def create_scatter_plot(data):
     # TODO: Create a figure with size (10, 6)
     plt.figure(figsize=(10, 6))
     plt.scatter(data['Hours'], data['Scores'], color = 'purple', alpha = 0.6)
-    plt.xlabel('Hours Studied ()')
-    
+    plt.xlabel('Hours Studied (h)', fontdict= 12)
+    plt.ylabel('Test Scores (%)', fontdict= 12)
+    plt.title('Student Test Scores vs Hours')
+    plt.grid(True, alpha=0.3)
+    plt.savefig('test_scores_scatter_plot.png')
+    plt.show()
+
     # TODO: Create a scatter plot with Hours on x-axis and Scores on y-axis
     #       Use color='purple' and alpha=0.6
     
@@ -73,7 +78,7 @@ def create_scatter_plot(data):
     # TODO: Save the figure as 'scatter_plot.png' with dpi=300
     
     # TODO: Show the plot
-    pass
+
 
 
 def split_data(data):
@@ -86,6 +91,19 @@ def split_data(data):
     Returns:
         X_train, X_test, y_train, y_test
     """
+    
+    X = data[['Hours']]
+    y = data[['Scores']]
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+    )
+
+    print(f"\nData Split")
+    print(f"Training Set: {len(X_train)} samples")
+    print(f"Testing Set: {len(X_test)} samples")
+
+    return X_train, X_test, y_train, y_test
     # TODO: Create X with the 'Hours' column (use double brackets to keep as DataFrame)
     
     # TODO: Create y with the 'Scores' column
@@ -95,7 +113,7 @@ def split_data(data):
     # TODO: Print how many samples are in training and testing sets
     
     # TODO: Return X_train, X_test, y_train, y_test
-    pass
+
 
 
 def train_model(X_train, y_train):
@@ -109,6 +127,13 @@ def train_model(X_train, y_train):
     Returns:
         trained LinearRegression model
     """
+    
+    model = LinearRegression()
+
+    model.fit(X_train, y_train)
+
+    
+
     # TODO: Create a LinearRegression model
     
     # TODO: Train the model using .fit()
