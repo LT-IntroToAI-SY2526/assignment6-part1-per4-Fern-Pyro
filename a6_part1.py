@@ -227,14 +227,14 @@ def make_prediction(model, hours):
     Returns:
         predicted test score
     """
-    # TODO: Reshape hours into the format the model expects: np.array([[hours]])
+    #Reshape hours into the format the model expects: np.array([[hours]])
+    hours_array = np.array([[hours]])
+    predicted_scores = model.predict(hours_array)[0] #Make a prediction
+
+    print(f"\nNew Perdiction")
+    print(f"If hours studied is {hours}, predicted score is: {predicted_scores:.2f}%")
     
-    # TODO: Make a prediction
-    
-    # TODO: Print the prediction with a clear message
-    
-    # TODO: Return the predicted score
-    pass
+    return predicted_scores
 
 
 if __name__ == "__main__":
@@ -246,23 +246,23 @@ if __name__ == "__main__":
     data = load_and_explore_data('student_scores.csv')
     
     # Step 2: Visualize the relationship
-    # TODO: Call create_scatter_plot() with the data
+    create_scatter_plot(data) #Call create_scatter_plot() with the data
     
     # Step 3: Split the data
-    # TODO: Call split_data() and store the returned values
-    
+    X_train, X_test, y_train, y_test = split_data(data) #Call split_data() and store the returned values
+
     # Step 4: Train the model
-    # TODO: Call train_model() with training data
+    model = train_model(X_train, y_train) #Call train_model() with training data
     
     # Step 5: Evaluate the model
-    # TODO: Call evaluate_model() with the model and test data
+    predictions = evaluate_model(model, X_test, y_test) #Call evaluate_model() with the model and test data
     
     # Step 6: Visualize results
-    # TODO: Call visualize_results() with all the necessary arguments
+    visualize_results(X_train, y_train, X_test, y_test, predictions, model) #Call visualize_results() with all the necessary arguments
     
     # Step 7: Make a new prediction
-    # TODO: Call make_prediction() for a student who studied 7 hours
-    
+    make_prediction(model, 7) #Call make_prediction() for a student who studied 7 hours
+
     print("\n" + "=" * 70)
     print("✓ Assignment complete! Check your saved plots.")
     print("Don't forget to complete a6_part1_writeup.md!")
