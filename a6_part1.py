@@ -57,8 +57,8 @@ def create_scatter_plot(data):
     # TODO: Create a figure with size (10, 6)
     plt.figure(figsize=(10, 6))
     plt.scatter(data['Hours'], data['Scores'], color = 'purple', alpha = 0.6)
-    plt.xlabel('Hours Studied (h)', fontdict= 12)
-    plt.ylabel('Test Scores (%)', fontdict= 12)
+    plt.xlabel('Hours Studied (h)', fontsize= 12)
+    plt.ylabel('Test Scores (%)', fontsize= 12)
     plt.title('Student Test Scores vs Hours')
     plt.grid(True, alpha=0.3)
     plt.savefig('test_scores_scatter_plot.png')
@@ -207,8 +207,8 @@ def visualize_results(X_train, y_train, X_test, y_test, predictions, model):
     # TODO: Create and plot the line of best fit
     #       Hint: Create a range of X values, predict Y values, then plot as a black line
 
-    plt.xlabel('Hours Studied (h)', fontdict= 12)
-    plt.ylabel('Test Scores (%)', fontdict= 12)
+    plt.xlabel('Hours Studied (h)', fontsize= 12)
+    plt.ylabel('Test Scores (%)', fontsize= 12)
     plt.title('Student Test Scores vs Hours')
     plt.legend()
     plt.grid(True, aplha=0.3)
