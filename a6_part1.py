@@ -133,9 +133,9 @@ def train_model(X_train, y_train):
     model.fit(X_train, y_train)
     
     print(f"\nModel Training Complete")
-    print(f"Slope (coefficient): {model.coef_[0]:.2f}")
-    print(f"Intercept: {model.intercept_: .2f}")
-    print(f"\nEquation: Scores = {model.coef[0]: .2f} x Hours + {model.intercept_:.2f} ")
+    print(f"Slope (coefficient): {model.coef_[0][0]:.2f}")
+    print(f"Intercept: {model.intercept_[0]:.2f}")
+    print(f"\nEquation: Scores = {model.coef_[0][0]:.2f} x Hours + {model.intercept_[0]:.2f} ")
 
     return model
 
@@ -165,8 +165,8 @@ def evaluate_model(model, X_test, y_test):
     
 
     #Print all three metrics with clear labels
-    print(f"\nMean Squared Error: {mse: .2f}%")
-    print(f"Root Mean Squared Error: {rmse: .2f}%")
+    print(f"\nMean Squared Error: {mse:.2f}%")
+    print(f"Root Mean Squared Error: {rmse:.2f}%")
     print(f"  → Interpretation: On average, predictions are off by {rmse:.2f}%")
     
     return predictions
@@ -194,15 +194,15 @@ def visualize_results(X_train, y_train, X_test, y_test, predictions, model):
     """
     plt.figure(figsize=(12,6)) #Create a figure with size (12, 6)
     
-    plt.scatter(X_train, y_train, color = 'blue', aplha= 0.5, label = 'Training Data')
+    plt.scatter(X_train, y_train, color = 'blue', alpha= 0.5, label = 'Training Data')
     # TODO: Plot training data as blue scatter points with label 'Training Data'
     plt.scatter(X_test, y_test, color = 'green', alpha= 0.7, label = 'Testing Data')
     # TODO: Plot test data (actual) as green scatter points with label 'Test Data (Actual)'
-    plt.scatter(X_test, predictions, s= 100, color = 'red', marker = 'x', alpha= 0.7, label = 'Perdictions')
+    plt.scatter(X_test, predictions, s= 100, color = 'red', marker = 'x', alpha= 0.7, label = 'Predictions')
     # TODO: Plot predictions as red X markers with label 'Predictions'
     
     X_range = np.linspace(X_train.min(), X_train.max(), 100).reshape(-1,1)
-    y_range = model.perdict(X_range)
+    y_range = model.predict(X_range)
     plt.plot(X_range, y_range, color = 'black', linewidth=2, label='Line of Best Fit')
     # TODO: Create and plot the line of best fit
     #       Hint: Create a range of X values, predict Y values, then plot as a black line
@@ -211,7 +211,7 @@ def visualize_results(X_train, y_train, X_test, y_test, predictions, model):
     plt.ylabel('Test Scores (%)', fontsize= 12)
     plt.title('Student Test Scores vs Hours')
     plt.legend()
-    plt.grid(True, aplha=0.3)
+    plt.grid(True, alpha=0.3)
     plt.savefig('test_scores_predictions_plot.png', dpi=300)
     plt.show()
 
@@ -229,9 +229,10 @@ def make_prediction(model, hours):
     """
     #Reshape hours into the format the model expects: np.array([[hours]])
     hours_array = np.array([[hours]])
-    predicted_scores = model.predict(hours_array)[0] #Make a prediction
+    predict = model.predict(hours_array) #Make a prediction
+    predicted_scores = predict.item()
 
-    print(f"\nNew Perdiction")
+    print(f"\nNew Prediction")
     print(f"If hours studied is {hours}, predicted score is: {predicted_scores:.2f}%")
     
     return predicted_scores
