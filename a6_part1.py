@@ -139,15 +139,6 @@ def train_model(X_train, y_train):
 
     return model
 
-    # TODO: Create a LinearRegression model
-    
-    # TODO: Train the model using .fit()
-    
-    # TODO: Print the coefficient (slope) and intercept
-    
-    # TODO: Return the trained model
-    pass
-
 
 def evaluate_model(model, X_test, y_test):
     """
@@ -161,6 +152,22 @@ def evaluate_model(model, X_test, y_test):
     Returns:
         predictions array
     """
+    
+    predictions = model.predict(X_test)
+
+    r2 = r2_score(y_test, predictions)
+    mse = mean_squared_error(y_test, predictions)
+    rmse = np.sqrt(mse)
+
+    print(f"\nModel Performance")
+    print(f"R² Score: {r2: .4f}")
+    print(f" → Interpretation: The model explains {r2*100:.2f}% of the variance in scores")
+    
+    print(f"\nMean Squared Error: {mse: .2f}%")
+    print(f"Root Mean Squared Error: {rmse: .2f}%")
+    print(f"  → Interpretation: On average, predictions are off by {rmse:.2f}%")
+    
+    return predictions
     # TODO: Make predictions using the model
     
     # TODO: Calculate R² score using r2_score()
@@ -172,7 +179,6 @@ def evaluate_model(model, X_test, y_test):
     # TODO: Print all three metrics with clear labels
     
     # TODO: Return the predictions
-    pass
 
 
 def visualize_results(X_train, y_train, X_test, y_test, predictions, model):
