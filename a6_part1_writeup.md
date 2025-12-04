@@ -10,8 +10,7 @@
 ### Question 1: R² Score Interpretation
 What does the R² score tell you about your model? What does it mean if R² is close to 1? What if it's close to 0?
 
-**YOUR ANSWER:**
-
+I had to look up r2_score, which we imported from sklearn.metrics; R² is the coefficient of determination, which is used to measure the fit of the regression line by comparing the predicted relationship between the dependent and independent variable against real data. The closer R² is to 1, the more accurate the model is and vice versa (the closer R² is to 0, the less correlation is proved by the regression line).
 
 
 
@@ -20,8 +19,7 @@ What does the R² score tell you about your model? What does it mean if R² is c
 ### Question 2: Mean Squared Error (MSE)
 What does the MSE (Mean Squared Error) mean in plain English? Why do you think we square the errors instead of just taking the average of the errors?
 
-**YOUR ANSWER:**
-
+MSE is the average difference between the model’s predictions and true data points/values (the margin of error); squaring the error ensures the MSE is positive.
 
 
 
@@ -32,7 +30,7 @@ Would you trust this model to predict a score for a student who studied 10 hours
 - What's the maximum hours in your dataset?
 - What happens when you make predictions outside the range of your training data?
 
-**YOUR ANSWER:**
+I wouldn’t necessarily trust my model to accurately predict a score for a student who studied 10 hours; the training dataset ranges from 2.3-9.6 hours of studying, which does not encompass any reference points for test scores at 10 hours of studying. When you make perdeictipons outside of this range the model continues on the same trajectory found in the training data set, which may not hold true for a wider range (the pattern doesn’t necessarily continue or stay constant).
 
 
 
@@ -47,8 +45,7 @@ Looking at your scatter plot, describe the relationship between hours studied an
 - Linear or non-linear?
 - Positive or negative?
 
-**YOUR ANSWER:**
-
+The relationship between hours studied and test scores is moderate with an upward slope (positive); the relationship isnt perfectly linear, but the best fit line would be.
 
 
 
@@ -58,9 +55,9 @@ Looking at your scatter plot, describe the relationship between hours studied an
 What are some real-world factors that could affect test scores that this model doesn't account for? List at least 3 factors.
 
 **YOUR ANSWER:**
-1. 
-2. 
-3. 
+1. Sleep & other basics needs 
+2. Time (given for completion)
+3. Grading curve and/or scale
 
 
 ---
