@@ -67,8 +67,7 @@ What are some real-world factors that could affect test scores that this model d
 ### Question 6: Train/Test Split
 Why do we split our data into training and testing sets? What would happen if we trained and tested on the same data?
 
-**YOUR ANSWER:**
-
+We split our data into training and testing sets in order to compare how our model “learns” versus the real relationship of whatever we are looking at. If we were to train and test on the same data it would appear as though the model has 100% accuracy, but in reality it has just fitted itself to the provided data (“memorizing” the “correct” answers).
 
 
 
@@ -77,8 +76,7 @@ Why do we split our data into training and testing sets? What would happen if we
 ### Question 7: Most Challenging Part
 What was the most challenging part of this assignment for you? How did you overcome it (or what help do you still need)?
 
-**YOUR ANSWER:**
-
+The most challenging part of this assignment was determining and eliminating errors. I didn’t run my program incementarly because I was focused on writing the actual code, so it wasn’t until running the finished code that I realized I had errors. I fixed errors mostly one at a time, which was especially inconvenient because the program took a few minutes to run and return an error message. This meant a large chunk of my time was spent waiting for each individual change in order to determine whether I had fixed the problem or not. For some error messages I used Chat GBT to point out discrepancies in my code; these were mostly spelling errors that I was unable to catch because I had been staring at the code for so long. 
 
 
 
@@ -92,8 +90,7 @@ Describe one real-world problem you could solve with linear regression. What wou
 - **Target (Y):** 
 - **Why this relationship might be linear:**
 
-**YOUR ANSWER:**
-
+One real world application of linear regression could be determining the relationship between education level and wage/income level. The “Feature (X)” would be the level of education completed and/or degree earned and the “Target  (Y)” would be the various wage/income levels in dollar amounts. This relationship might be linear because of an already observed correlation between education and job placement(s).
 
 
 
