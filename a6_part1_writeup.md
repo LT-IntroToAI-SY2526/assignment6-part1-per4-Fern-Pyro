@@ -86,9 +86,9 @@ The most challenging part of this assignment was determining and eliminating err
 
 ### Question 8: Future Applications
 Describe one real-world problem you could solve with linear regression. What would be your:
-- **Feature (X):** 
-- **Target (Y):** 
-- **Why this relationship might be linear:**
+- **Feature (X):** Education Level
+- **Target (Y):** Wage/Income Level
+- **Why this relationship might be linear:** because of an already observed correlation between education and job placement(s).
 
 One real world application of linear regression could be determining the relationship between education level and wage/income level. The “Feature (X)” would be the level of education completed and/or degree earned and the “Target  (Y)” would be the various wage/income levels in dollar amounts. This relationship might be linear because of an already observed correlation between education and job placement(s).
 
